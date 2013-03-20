@@ -1,0 +1,1 @@
+require 'validates_mx_record'
