@@ -8,7 +8,8 @@ module Rubykitchen
 				def validate_each(record, attribute, value)
 					if system("ping -c 1 google.com") then
 					  mail_servers = Resolv::DNS.open.getresources(value.split('@')[1], Resolv::DNS::Resource::IN::MX)
-					  if mail_servers.empty? then
+					  regex_check = value =~ /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
+                                          if mail_servers.empty? || !regex_check then
 						  record.errors[attribute] << "Does not have a MX record assosiated with mail id"
 					  end
 					else
