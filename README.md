@@ -1,7 +1,7 @@
-Validates Website
+Validates MX Records of Emails
 =========
 
-A Validator to Check if the email submited by user has a valid mx server
+A active record validator to Check if the email submited by user has a valid mx record assosiated with it.
 
 ToDo
 --------------
